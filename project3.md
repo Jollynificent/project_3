@@ -1,15 +1,30 @@
-Documentation of Project_3
+Documentation of TO-DO application on Mern Web Stack
+
+##Backend
+#update and upgrade ubuntu
 `sudo apt update`
 `sudo apt upgrade`
+ 
+#get location of Node.js from ubuntu repositories and install
 `curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash`
 `sudo apt-get install -y nodejs`
+
+#verify installation
 `node -v` 
 `npm -v` 
+
+#create directory and verify
 `mkdir Todo`
 `ls`
+
+#enter directory and initialize project
 `cd Todo`
 `npm init`
+
+#confirm package.json file created
 `ls`
+![alt text](init.PNG)
+
 `npm install express`
 `touch index.js`
 `npm install dotenv`
