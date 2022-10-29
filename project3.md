@@ -57,13 +57,23 @@ console.log(`Server running on port ${port}`)
 });
 :wq!
 
-#
+#confirm inserted code and check server is working
+`cat index.js`
 `node index.js`
-`cd Todo`
-`ls`
+![alt text](server running on port 5000.PNG)
+![alt text](express.PNG)
+
+
+#change from directory 
+`cd ..`
+
+#create folder and change directory into folder
 `mkdir routes && cd routes`
+
+#create file in folder, open the file and insert code and save
 `touch api.js`
 `vim api.js`
+
 const express = require ('express');
 const router = express.Router();
 
@@ -80,13 +90,21 @@ router.delete('/todos/:id', (req, res, next) => {
 })
 
 module.exports = router;
+:wq!
+
+#confirm code is correct for errors
 `cat api.js`
+
+#change from directory 
 `cd ..`
-`pwd`
+
+#install mongolese, create models folder, change to directory and crete file todo.js
 `npm install mongoose`
 `mkdir models && cd models && touch todo.js`
-`ls`
+
+#open file and insert code and save
 `vim todo.js`
+
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -102,6 +120,9 @@ required: [true, 'The todo text field is required']
 const Todo = mongoose.model('todo', TodoSchema);
 
 module.exports = Todo;
+:wq!
+
+
 `cd ..`
 `cd routes`
 `ls`
@@ -139,12 +160,17 @@ Todo.findOneAndDelete({"_id": req.params.id})
 
 module.exports = router;
 :wq!
-`cat api.js`
+
+`cd Todo`
+#create a file .env and insert the code
 `touch.env`
 `vi .env`
 DB = mongodb+srv://Jolly-Dareyio:Jollof3675@@cluster0.0qyzwmb.mongodb.net/DareyDB?retryWrites=true&w=majority
+
+#confirm for error
 `cat .env`
-`ls`
+
+#update index.js with .env, delete and insert code and save
 `vi index.js`
 press esc
 :%d
@@ -190,16 +216,27 @@ console.log(`Server running on port ${port}`)
 esc
 :wq!
 enter
+
+#confirm code for errors and start server
 `cat index.js`
 `node index.js`
+![alt text](stack todo.PNG)
+
+
+##Frontend
 `lsof -i tcp:5000`
 `kill -9 15332` where 15332 is process id
 `node index.js`
 `cd Todo`
+
+#create client folder and install dependencies for react app
 `npx create-react-app client`
 `npm install concurrently --save-dev`
 `npm install nodemon --save-dev`
+
+#open package.json and change code
 `vi package.json`
+
 "scripts": {
 "start": "node index.js",
 "start-watch": "nodemon index.js",
@@ -207,22 +244,36 @@ enter
 }
 esc
 :wq!
+
+#change directory to client, open package.json file and add key value pair
 `cd client`
 `ls`
 `vi package.json`
 "proxy": "http://localhost:5000"
+
+#confirm for errors
 `cat package.json`
+
+#change to Todo directory and run command
 `cd ..`
 `npm run dev`
-`cd Togo`
+
+#enter Todo directory and move to directory
+`cd Todo`
 `cd client`
 `cd src`
+
+#create and enter directory
 `mkdir components`
 `cd components`
+#create files
 `touch Input.js ListTodo.js Todo.js`
+#confirm creation
 `ls`
 `ll`
+#open file, insert and save 
 `vi Input.js`
+
 import React, { Component } from 'react';
 import axios from 'axios';
 
@@ -268,12 +319,20 @@ return (
 }
 
 export default Input
+:wq!
+
+#mpve to src and clients
 `cd ..`
 `cd..`
+
+#install axios
 `npm install axios`
+#go to components
 `cd src/components/`
 `ls`
+#open ListTodo.js, insert and save
 `vi ListTodo.js`
+
 import React from 'react';
 
 const ListTodo = ({ todos, deleteTodo }) => {
@@ -302,8 +361,13 @@ return (
 export default ListTodo
 esc
 :wq!
+
+#confirm for errors
 `cat ListTodo.js`
+
+#open Todo.js, insert and save
 `vi Todo.js`
+
 import React, {Component} from 'react';
 import axios from 'axios';
 
@@ -361,8 +425,13 @@ let { todos } = this.state;
 export default Todo;
 esc
 :wq!
+
+#confirm for errors
 `cat Todo.js`
+
+#move to src
 `cd ..`
+#open App.js, insert and save
 `vi App.js`
 import React from 'react';
 
@@ -380,8 +449,13 @@ return (
 export default App;
 esc
 :wq!
+
+#confirm for errors
 `cat App.js`
+
+#open App.css, insert and save
 `vi App.css`
+
 .App {
 text-align: center;
 font-size: calc(10px + 2vmin);
@@ -471,9 +545,13 @@ margin-top: 0;
 }
 esc
 :wq!
+
+#confrim for errors
 `cat App.css`
-`ls`
+
+#open index.css, insert and save
 `vi index.css`
+
 body {
 margin: 0;
 padding: 0;
@@ -491,7 +569,15 @@ code {
 font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 monospace;
 }
+esc
+:wq!
+
+#confirm for errors
 `cat index.css`
+
+#change directory to Todo and check
 `cd ../..`
 `pwd`
+#run command 
 `npm run dev`
+![alt text](todo.PNG)
