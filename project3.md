@@ -25,10 +25,16 @@ Documentation of TO-DO application on Mern Web Stack
 `ls`
 ![alt text](init.PNG)
 
+#install express and create file index.is
 `npm install express`
 `touch index.js`
+
+#install dotenv module
 `npm install dotenv`
+
+#open index.js file and insert and save code
 `vim index.js`
+
 const express = require('express');
 require('dotenv').config();
 
@@ -50,6 +56,8 @@ app.listen(port, () => {
 console.log(`Server running on port ${port}`)
 });
 :wq!
+
+#
 `node index.js`
 `cd Todo`
 `ls`
